@@ -1,183 +1,98 @@
-🚗 AI-Based Driver Alertness Monitoring System
+# 🚗 AI-Based Driver Alertness Monitoring System
 
-A real-time computer vision and machine learning system that detects driver fatigue and drowsiness using eye behavior analysis, blink patterns, and a hybrid ML + geometry-based approach.
-The system provides live alerts, session analytics, and a web-based monitoring dashboard deployed on the cloud.
+Real-time driver fatigue & drowsiness detection using **Computer Vision + Machine Learning**
 
-🔗 Live Demo:
-https://driver-alertness-monitoring-system-2fmxzazppyoz7c9geytl6x.streamlit.app
+---
 
-📌 Problem Statement
+## 📌 Project Overview
 
-Driver fatigue is one of the leading causes of road accidents.
-Traditional systems rely on vehicle behavior, but this project focuses directly on the driver’s eyes and blinking patterns to detect loss of alertness.
+This system monitors a driver’s eye behavior in real-time and detects fatigue using a **hybrid AI model**:
 
-This system continuously monitors:
+- Eye Aspect Ratio (EAR)
+- ML-based eye state classifier
+- Blink rate & closure duration
+- Hybrid fatigue decision logic
 
-Eye openness
+The goal is to prevent accidents caused by **drowsy driving**.
 
-Blink rate
+---
 
-Blink duration
+## 🧠 Technologies Used
 
-Micro-sleep events
+- Python  
+- OpenCV  
+- MediaPipe  
+- Scikit-Learn  
+- Streamlit  
+- NumPy, Pandas  
 
-and triggers alerts when fatigue is detected.
+---
 
+## ⚙️ How It Works
 
+1. Camera captures face  
+2. MediaPipe detects eye landmarks  
+3. EAR measures eye openness  
+4. ML model classifies eye as open/closed  
+5. Blink behavior is analyzed  
+6. Fatigue is detected & alarm is triggered  
 
-🧠 System Overview
+---
 
-The project is built as a Hybrid AI System using three layers of intelligence:
+## 🌐 Deployment
 
-Layer	Description
+The system is deployed on **Streamlit Community Cloud**.
 
-Computer Vision	Face and eye detection using MediaPipe
-Geometry	Eye Aspect Ratio (EAR) to measure eye openness
-Machine Learning	SVM model classifies eye as Open or Closed
-Behavioral Analysis	Blink rate and eye-closure duration
-Decision Engine	Hybrid logic to detect fatigue
+Due to cloud security limitations, **live webcam runs locally**, while the **deployed version shows**:
 
+- Real session analytics  
+- Blink & EAR graphs  
+- Fatigue event logs  
+- Demo video  
 
-⚙️ How the System Works
+🔗 **Live App:**  
+*(Paste your Streamlit URL here)*
 
-Webcam captures the driver’s face
+---
 
-MediaPipe detects facial landmarks
+## 📁 Project Structure
 
-Eye regions are extracted
-
-EAR (Eye Aspect Ratio) measures eye openness
-
-ML model (SVM) predicts open/closed eye state
-
-Blink rate & closure duration are calculated
-
-A hybrid fatigue score is computed
-
-If risk is high → alert is triggered
-
-All data is logged and visualized on the dashboard
-
-
-🖥️ Features
-
-🔴 Real-time fatigue detection
-
-👁️ Eye Aspect Ratio (EAR) based geometry
-
-🤖 ML-based eye state classifier (SVM)
-
-👀 Blink rate & duration analysis
-
-🔊 Audio alert system
-
-📊 Live dashboard with:
-
-Total blinks
-
-Average EAR
-
-Fatigue events
-
-Session duration
-
-☁️ Cloud-deployed Streamlit interface
-
-
-
-📊 Dashboard
-
-The Streamlit dashboard displays:
-
-Real-time session analytics
-
-EAR and blink graphs
-
-Fatigue timeline
-
-System status
-
-This allows supervisors or users to visually monitor driver alertness.
-
-
-
-🧪 Dataset
-
-A custom dataset of eye images was created:
-
-Open eyes
-
-Closed eyes
-
-Images were captured using webcam and preprocessed for training the SVM classifier.
-
-🧠 Machine Learning Model
-
-Algorithm: Support Vector Machine (SVM)
-
-Input: Grayscale 24×24 eye images
-
-Output: Open (1) / Closed (0)
-
-Combined with EAR for high accuracy
-
-
-
-🛠️ Tech Stack
-
-Python
-
-OpenCV
-
-MediaPipe
-
-NumPy / Pandas
-
-Scikit-Learn
-
-Streamlit
-
-GitHub + Streamlit Cloud
-
-
-
-
-🚀 Deployment
-
-The system is deployed on Streamlit Community Cloud and is accessible via browser.
-
-Due to cloud limitations, live webcam access runs locally, while the deployed version shows analytics and system behavior using logs and demo video.
-
-
-
-📂 Project Structure
+```text
 eyeFatigue/
 │
-├── app.py                 # Streamlit dashboard
-├── dataset/               # Open/closed eye images
-├── models/                # Trained SVM and data
-├── scripts/               # Real-time detection + training scripts
-├── logs/                  # Session logs
+├── app.py              # Streamlit dashboard
+├── dataset/            # Eye images (open / closed)
+├── models/             # Trained SVM + NumPy data
+├── scripts/            # Real-time detection & training
+├── logs/               # Session CSV logs
 └── README.md
+```
 
+---
 
+## 📊 Dashboard Features
 
-📌 Future Improvements
+- Total blinks  
+- Average EAR  
+- Fatigue events  
+- Session time  
+- Live charts of EAR & blink rate  
 
-Head pose detection
+---
 
-Yawn detection
+## 🚀 Future Improvements
 
-CNN-based eye classifier
+- Head pose detection  
+- Yawn detection  
+- CNN-based eye classifier  
+- Mobile deployment  
+- Cloud video input  
 
-Mobile deployment
+---
 
-Cloud video input
+## 👨‍💻 Author
 
+**Faiz Ahmad**  
+Final Year B.Tech (CSE)  
 
-
-👨‍💻 Author
-
-Faiz Ahmad
-Final Year B.Tech (CSE)
-This project was built as a placement-level AI system with real-time deployment.
+This project was built as a **placement-level AI system** with real-time deployment.
